@@ -1,6 +1,7 @@
 name: DevSecOps Pipeline - PAI4
 
 on:
+  workflow_dispatch:
   push:
     branches: ["main", "dev"]
   pull_request:
