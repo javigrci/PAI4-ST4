@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pai4-app
+  labels:
+    app: pai4-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pai4-app
+  template:
+    metadata:
+      labels:
+        app: pai4-app
+    spec:
+      # INTENTIONAL: running as root for IaC scanning demo (Trivy detects this)
+      containers:
+        - name: pai4-app
+          image: pai4-app:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_PASSWORD
+              value: "admin1234"          # INTENTIONAL: secret in plaintext (Trivy detects this)
+            - name: DEBUG
+              value: "true"
+          securityContext:
+            privileged: true             # INTENTIONAL: privileged mode (Trivy detects this)
+            runAsUser: 0                 # INTENTIONAL: running as root
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"

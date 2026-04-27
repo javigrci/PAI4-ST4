@@ -1,0 +1,1223 @@
+<?xml version="1.0"?>
+<OWASPZAPReport programName="ZAP" version="2.17.0" generated="Mon, 27 Apr 2026 16:57:57" created="2026-04-27T16:57:57.153343454Z">
+	
+		<site name="http://localhost:8080" host="localhost" port="8080" ssl="false">
+			<alerts>
+				
+					<alertitem>
+						<pluginid>10038</pluginid>
+						<alertRef>10038-1</alertRef>
+						<alert>Content Security Policy (CSP) Header Not Set</alert>
+						<name>Content Security Policy (CSP) Header Not Set</name>
+						<riskcode>2</riskcode>
+						<confidence>3</confidence>
+						<riskdesc>Medium (High)</riskdesc>
+						<confidencedesc>High</confidencedesc>
+						<desc>&lt;p&gt;Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page &#x2014; covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.&lt;/p&gt;</desc>
+						<instances>
+							
+								<instance>
+									<uri>http://localhost:8080</uri>
+									<nodeName>http://localhost:8080</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/api/v2/oa3/swagger-ui/</uri>
+									<nodeName>http://localhost:8080/api/v2/oa3/swagger-ui/</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/forgot_username/</uri>
+									<nodeName>http://localhost:8080/forgot_username/</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/login?next=/robots.txt</uri>
+									<nodeName>http://localhost:8080/login (next)</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/password_reset/</uri>
+									<nodeName>http://localhost:8080/password_reset/</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+						</instances>
+						<count>5</count>
+						<systemic>true</systemic>
+						<solution>&lt;p&gt;Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.&lt;/p&gt;</solution>
+						<otherinfo></otherinfo>
+						<reference>&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP&lt;/p&gt;&lt;p&gt;https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html&lt;/p&gt;&lt;p&gt;https://www.w3.org/TR/CSP/&lt;/p&gt;&lt;p&gt;https://w3c.github.io/webappsec-csp/&lt;/p&gt;&lt;p&gt;https://web.dev/articles/csp&lt;/p&gt;&lt;p&gt;https://caniuse.com/#feat=contentsecuritypolicy&lt;/p&gt;&lt;p&gt;https://content-security-policy.com/&lt;/p&gt;</reference>
+						<cweid>693</cweid>
+						<wascid>15</wascid>
+						<sourceid>1</sourceid>
+					</alertitem>
+				
+				
+					<alertitem>
+						<pluginid>10003</pluginid>
+						<alertRef>10003</alertRef>
+						<alert>Vulnerable JS Library</alert>
+						<name>Vulnerable JS Library</name>
+						<riskcode>2</riskcode>
+						<confidence>2</confidence>
+						<riskdesc>Medium (Medium)</riskdesc>
+						<confidencedesc>Medium</confidencedesc>
+						<desc>&lt;p&gt;The identified library appears to be vulnerable.&lt;/p&gt;</desc>
+						<instances>
+							
+								<instance>
+									<uri>http://localhost:8080/static/bootstrap/dist/js/bootstrap.min.js</uri>
+									<nodeName>http://localhost:8080/static/bootstrap/dist/js/bootstrap.min.js</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>* Bootstrap v3.4.1</evidence>
+									<otherinfo>The identified library bootstrap, version 3.4.1 is vulnerable.
+CVE-2025-1647
+CVE-2024-6485
+https://nvd.nist.gov/vuln/detail/CVE-2024-6485
+https://www.herodevs.com/vulnerability-directory/cve-2024-6485
+https://github.com/advisories/GHSA-vxmc-5x29-h64v
+https://www.herodevs.com/vulnerability-directory/cve-2025-1647
+https://github.com/twbs/bootstrap
+https://github.com/twbs/bootstrap/issues/20631
+https://lists.debian.org/debian-lts-announce/2025/06/msg00001.html
+</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/drf_spectacular_sidecar/swagger-ui-dist/swagger-ui-bundle.js</uri>
+									<nodeName>http://localhost:8080/static/drf_spectacular_sidecar/swagger-ui-dist/swagger-ui-bundle.js</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>DOMPurify.version=&quot;3.2.6&quot;</evidence>
+									<otherinfo>The identified library DOMPurify, version 3.2.6 is vulnerable.
+CVE-2026-0540
+CVE-2025-15599
+https://www.vulncheck.com/advisories/dompurify-xss-via-textarea-rawtext-bypass-in-safeforxml
+https://www.vulncheck.com/advisories/dompurify-xss-via-missing-rawtext-elements-in-safeforxml
+https://github.com/cure53/DOMPurify/security/advisories/GHSA-h8r8-wccr-v5f2
+https://github.com/cure53/DOMPurify/releases/tag/3.3.2
+https://github.com/cure53/DOMPurify/security/advisories/GHSA-cj63-jhhr-wcxv
+https://www.vulncheck.com/advisories/dompurify-xss-via-missing-rawtext-elements-in-safe-for-xml
+https://github.com/cure53/DOMPurify/commit/fca0a938b4261ddc9c0293a289935a9029c049f5
+https://github.com/cure53/DOMPurify/commit/c861f5a83fb8d90800f1680f855fee551161ac2b
+https://github.com/cure53/DOMPurify/security/advisories/GHSA-cjmm-f4jc-qw8r
+https://www.vulncheck.com/advisories/dompurify-xss-via-textarea-rawtext-bypass-in-safe-for-xml
+</otherinfo>
+								</instance>
+							
+						</instances>
+						<count>2</count>
+						<systemic>false</systemic>
+						<solution>&lt;p&gt;Upgrade to the latest version of the affected library.&lt;/p&gt;</solution>
+						<otherinfo>&lt;p&gt;The identified library bootstrap, version 3.4.1 is vulnerable.&lt;/p&gt;&lt;p&gt;CVE-2025-1647&lt;/p&gt;&lt;p&gt;CVE-2024-6485&lt;/p&gt;&lt;p&gt;https://nvd.nist.gov/vuln/detail/CVE-2024-6485&lt;/p&gt;&lt;p&gt;https://www.herodevs.com/vulnerability-directory/cve-2024-6485&lt;/p&gt;&lt;p&gt;https://github.com/advisories/GHSA-vxmc-5x29-h64v&lt;/p&gt;&lt;p&gt;https://www.herodevs.com/vulnerability-directory/cve-2025-1647&lt;/p&gt;&lt;p&gt;https://github.com/twbs/bootstrap&lt;/p&gt;&lt;p&gt;https://github.com/twbs/bootstrap/issues/20631&lt;/p&gt;&lt;p&gt;https://lists.debian.org/debian-lts-announce/2025/06/msg00001.html&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</otherinfo>
+						<reference>&lt;p&gt;https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/&lt;/p&gt;</reference>
+						<cweid>1395</cweid>
+						<wascid>-1</wascid>
+						<sourceid>94</sourceid>
+					</alertitem>
+				
+				
+					<alertitem>
+						<pluginid>90004</pluginid>
+						<alertRef>90004-1</alertRef>
+						<alert>Cross-Origin-Resource-Policy Header Missing or Invalid</alert>
+						<name>Cross-Origin-Resource-Policy Header Missing or Invalid</name>
+						<riskcode>1</riskcode>
+						<confidence>2</confidence>
+						<riskdesc>Low (Medium)</riskdesc>
+						<confidencedesc>Medium</confidencedesc>
+						<desc>&lt;p&gt;Cross-Origin-Resource-Policy header is an opt-in header designed to counter side-channels attacks like Spectre. Resource should be specifically set as shareable amongst different origins.&lt;/p&gt;</desc>
+						<instances>
+							
+								<instance>
+									<uri>http://localhost:8080/static/bootstrap-select/dist/css/bootstrap-select.min.css</uri>
+									<nodeName>http://localhost:8080/static/bootstrap-select/dist/css/bootstrap-select.min.css</nodeName>
+									<method>GET</method>
+									<param>Cross-Origin-Resource-Policy</param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/dojo/img/favicon.png</uri>
+									<nodeName>http://localhost:8080/static/dojo/img/favicon.png</nodeName>
+									<method>GET</method>
+									<param>Cross-Origin-Resource-Policy</param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/fontawesomefree/css/solid.min.css</uri>
+									<nodeName>http://localhost:8080/static/fontawesomefree/css/solid.min.css</nodeName>
+									<method>GET</method>
+									<param>Cross-Origin-Resource-Policy</param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/metismenu/dist/metisMenu.min.css</uri>
+									<nodeName>http://localhost:8080/static/metismenu/dist/metisMenu.min.css</nodeName>
+									<method>GET</method>
+									<param>Cross-Origin-Resource-Policy</param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css</uri>
+									<nodeName>http://localhost:8080/static/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css</nodeName>
+									<method>GET</method>
+									<param>Cross-Origin-Resource-Policy</param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+						</instances>
+						<count>5</count>
+						<systemic>true</systemic>
+						<solution>&lt;p&gt;Ensure that the application/web server sets the Cross-Origin-Resource-Policy header appropriately, and that it sets the Cross-Origin-Resource-Policy header to &apos;same-origin&apos; for all web pages.&lt;/p&gt;&lt;p&gt;&apos;same-site&apos; is considered as less secured and should be avoided.&lt;/p&gt;&lt;p&gt;If resources must be shared, set the header to &apos;cross-origin&apos;.&lt;/p&gt;&lt;p&gt;If possible, ensure that the end user uses a standards-compliant and modern web browser that supports the Cross-Origin-Resource-Policy header (https://caniuse.com/mdn-http_headers_cross-origin-resource-policy).&lt;/p&gt;</solution>
+						<otherinfo></otherinfo>
+						<reference>&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy&lt;/p&gt;</reference>
+						<cweid>693</cweid>
+						<wascid>14</wascid>
+						<sourceid>25</sourceid>
+					</alertitem>
+				
+				
+					<alertitem>
+						<pluginid>10063</pluginid>
+						<alertRef>10063-1</alertRef>
+						<alert>Permissions Policy Header Not Set</alert>
+						<name>Permissions Policy Header Not Set</name>
+						<riskcode>1</riskcode>
+						<confidence>2</confidence>
+						<riskdesc>Low (Medium)</riskdesc>
+						<confidencedesc>Medium</confidencedesc>
+						<desc>&lt;p&gt;Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.&lt;/p&gt;</desc>
+						<instances>
+							
+								<instance>
+									<uri>http://localhost:8080/static/bootstrap/dist/js/bootstrap.min.js</uri>
+									<nodeName>http://localhost:8080/static/bootstrap/dist/js/bootstrap.min.js</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/datatables.net-bs/js/dataTables.bootstrap.min.js</uri>
+									<nodeName>http://localhost:8080/static/datatables.net-bs/js/dataTables.bootstrap.min.js</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/jquery.cookie/jquery.cookie.js</uri>
+									<nodeName>http://localhost:8080/static/jquery.cookie/jquery.cookie.js</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/metismenu/dist/metisMenu.min.js</uri>
+									<nodeName>http://localhost:8080/static/metismenu/dist/metisMenu.min.js</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js</uri>
+									<nodeName>http://localhost:8080/static/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+						</instances>
+						<count>5</count>
+						<systemic>true</systemic>
+						<solution>&lt;p&gt;Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.&lt;/p&gt;</solution>
+						<otherinfo></otherinfo>
+						<reference>&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Permissions-Policy&lt;/p&gt;&lt;p&gt;https://developer.chrome.com/blog/feature-policy/&lt;/p&gt;&lt;p&gt;https://scotthelme.co.uk/a-new-security-header-feature-policy/&lt;/p&gt;&lt;p&gt;https://w3c.github.io/webappsec-feature-policy/&lt;/p&gt;&lt;p&gt;https://www.smashingmagazine.com/2018/12/feature-policy/&lt;/p&gt;</reference>
+						<cweid>693</cweid>
+						<wascid>15</wascid>
+						<sourceid>94</sourceid>
+					</alertitem>
+				
+				
+					<alertitem>
+						<pluginid>10096</pluginid>
+						<alertRef>10096</alertRef>
+						<alert>Timestamp Disclosure - Unix</alert>
+						<name>Timestamp Disclosure - Unix</name>
+						<riskcode>1</riskcode>
+						<confidence>1</confidence>
+						<riskdesc>Low (Low)</riskdesc>
+						<confidencedesc>Low</confidencedesc>
+						<desc>&lt;p&gt;A timestamp was disclosed by the application/web server. - Unix&lt;/p&gt;</desc>
+						<instances>
+							
+								<instance>
+									<uri>http://localhost:8080/static/drf_spectacular_sidecar/swagger-ui-dist/swagger-ui-standalone-preset.js</uri>
+									<nodeName>http://localhost:8080/static/drf_spectacular_sidecar/swagger-ui-dist/swagger-ui-standalone-preset.js</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>1518500249</evidence>
+									<otherinfo>1518500249, which evaluates to: 2018-02-13 05:37:29.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/drf_spectacular_sidecar/swagger-ui-dist/swagger-ui-standalone-preset.js</uri>
+									<nodeName>http://localhost:8080/static/drf_spectacular_sidecar/swagger-ui-dist/swagger-ui-standalone-preset.js</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>1732584193</evidence>
+									<otherinfo>1732584193, which evaluates to: 2024-11-26 01:23:13.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/drf_spectacular_sidecar/swagger-ui-dist/swagger-ui-standalone-preset.js</uri>
+									<nodeName>http://localhost:8080/static/drf_spectacular_sidecar/swagger-ui-dist/swagger-ui-standalone-preset.js</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>1750603025</evidence>
+									<otherinfo>1750603025, which evaluates to: 2025-06-22 14:37:05.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/drf_spectacular_sidecar/swagger-ui-dist/swagger-ui-standalone-preset.js</uri>
+									<nodeName>http://localhost:8080/static/drf_spectacular_sidecar/swagger-ui-dist/swagger-ui-standalone-preset.js</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>1859775393</evidence>
+									<otherinfo>1859775393, which evaluates to: 2028-12-07 04:16:33.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/drf_spectacular_sidecar/swagger-ui-dist/swagger-ui-standalone-preset.js</uri>
+									<nodeName>http://localhost:8080/static/drf_spectacular_sidecar/swagger-ui-dist/swagger-ui-standalone-preset.js</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>1894007588</evidence>
+									<otherinfo>1894007588, which evaluates to: 2030-01-07 09:13:08.</otherinfo>
+								</instance>
+							
+						</instances>
+						<count>5</count>
+						<systemic>true</systemic>
+						<solution>&lt;p&gt;Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.&lt;/p&gt;</solution>
+						<otherinfo>&lt;p&gt;1518500249, which evaluates to: 2018-02-13 05:37:29.&lt;/p&gt;</otherinfo>
+						<reference>&lt;p&gt;https://cwe.mitre.org/data/definitions/200.html&lt;/p&gt;</reference>
+						<cweid>497</cweid>
+						<wascid>13</wascid>
+						<sourceid>141</sourceid>
+					</alertitem>
+				
+				
+					<alertitem>
+						<pluginid>10021</pluginid>
+						<alertRef>10021</alertRef>
+						<alert>X-Content-Type-Options Header Missing</alert>
+						<name>X-Content-Type-Options Header Missing</name>
+						<riskcode>1</riskcode>
+						<confidence>2</confidence>
+						<riskdesc>Low (Medium)</riskdesc>
+						<confidencedesc>Medium</confidencedesc>
+						<desc>&lt;p&gt;The Anti-MIME-Sniffing header X-Content-Type-Options was not set to &apos;nosniff&apos;. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.&lt;/p&gt;</desc>
+						<instances>
+							
+								<instance>
+									<uri>http://localhost:8080/static/bootstrap-select/dist/css/bootstrap-select.min.css</uri>
+									<nodeName>http://localhost:8080/static/bootstrap-select/dist/css/bootstrap-select.min.css</nodeName>
+									<method>GET</method>
+									<param>x-content-type-options</param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/fontawesomefree/css/fontawesome.min.css</uri>
+									<nodeName>http://localhost:8080/static/fontawesomefree/css/fontawesome.min.css</nodeName>
+									<method>GET</method>
+									<param>x-content-type-options</param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/metismenu/dist/metisMenu.min.css</uri>
+									<nodeName>http://localhost:8080/static/metismenu/dist/metisMenu.min.css</nodeName>
+									<method>GET</method>
+									<param>x-content-type-options</param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css</uri>
+									<nodeName>http://localhost:8080/static/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css</nodeName>
+									<method>GET</method>
+									<param>x-content-type-options</param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</otherinfo>
+								</instance>
+							
+						</instances>
+						<count>4</count>
+						<systemic>true</systemic>
+						<solution>&lt;p&gt;Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to &apos;nosniff&apos; for all web pages.&lt;/p&gt;&lt;p&gt;If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.&lt;/p&gt;</solution>
+						<otherinfo>&lt;p&gt;This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.&lt;/p&gt;&lt;p&gt;At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.&lt;/p&gt;</otherinfo>
+						<reference>&lt;p&gt;https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)&lt;/p&gt;&lt;p&gt;https://owasp.org/www-community/Security_Headers&lt;/p&gt;</reference>
+						<cweid>693</cweid>
+						<wascid>15</wascid>
+						<sourceid>25</sourceid>
+					</alertitem>
+				
+				
+					<alertitem>
+						<pluginid>10111</pluginid>
+						<alertRef>10111</alertRef>
+						<alert>Authentication Request Identified</alert>
+						<name>Authentication Request Identified</name>
+						<riskcode>0</riskcode>
+						<confidence>3</confidence>
+						<riskdesc>Informational (High)</riskdesc>
+						<confidencedesc>High</confidencedesc>
+						<desc>&lt;p&gt;The given request has been identified as an authentication request. The &apos;Other Info&apos; field contains a set of key=value lines which identify any relevant fields. If the request is in a context which has an Authentication Method set to &quot;Auto-Detect&quot; then this rule will change the authentication to match the request identified.&lt;/p&gt;</desc>
+						<instances>
+							
+								<instance>
+									<uri>http://localhost:8080/login?next=/sitemap.xml</uri>
+									<nodeName>http://localhost:8080/login (next)(csrfmiddlewaretoken,password,username)</nodeName>
+									<method>POST</method>
+									<param>username</param>
+									<attack></attack>
+									<evidence>password</evidence>
+									<otherinfo>userParam=username
+userValue=ZAP
+passwordParam=password
+referer=http://localhost:8080/login?next=/sitemap.xml
+csrfToken=csrfmiddlewaretoken</otherinfo>
+								</instance>
+							
+						</instances>
+						<count>1</count>
+						<systemic>false</systemic>
+						<solution>&lt;p&gt;This is an informational alert rather than a vulnerability and so there is nothing to fix.&lt;/p&gt;</solution>
+						<otherinfo>&lt;p&gt;userParam=username&lt;/p&gt;&lt;p&gt;userValue=ZAP&lt;/p&gt;&lt;p&gt;passwordParam=password&lt;/p&gt;&lt;p&gt;referer=http://localhost:8080/login?next=/sitemap.xml&lt;/p&gt;&lt;p&gt;csrfToken=csrfmiddlewaretoken&lt;/p&gt;</otherinfo>
+						<reference>&lt;p&gt;https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/&lt;/p&gt;</reference>
+						<cweid>-1</cweid>
+						<wascid>-1</wascid>
+						<sourceid>174</sourceid>
+					</alertitem>
+				
+				
+					<alertitem>
+						<pluginid>10027</pluginid>
+						<alertRef>10027</alertRef>
+						<alert>Information Disclosure - Suspicious Comments</alert>
+						<name>Information Disclosure - Suspicious Comments</name>
+						<riskcode>0</riskcode>
+						<confidence>2</confidence>
+						<riskdesc>Informational (Medium)</riskdesc>
+						<confidencedesc>Medium</confidencedesc>
+						<desc>&lt;p&gt;The response appears to contain suspicious comments which may help an attacker.&lt;/p&gt;</desc>
+						<instances>
+							
+								<instance>
+									<uri>http://localhost:8080</uri>
+									<nodeName>http://localhost:8080</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>&lt;!-- /.dropdown-user --&gt;</evidence>
+									<otherinfo>The following pattern was used: \bUSER\b and was detected in likely comment: &quot;&lt;!-- /.dropdown-user --&gt;&quot;, see evidence field for the suspicious comment/snippet.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080</uri>
+									<nodeName>http://localhost:8080</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>&lt;!-- Bootstrap Select --&gt;</evidence>
+									<otherinfo>The following pattern was used: \bSELECT\b and was detected 3 times, the first in likely comment: &quot;&lt;!-- Bootstrap Select --&gt;&quot;, see evidence field for the suspicious comment/snippet.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080</uri>
+									<nodeName>http://localhost:8080</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>&lt;!-- TODO not working with dj</evidence>
+									<otherinfo>The following pattern was used: \bTODO\b and was detected in likely comment: &quot;&lt;!-- TODO not working with django tagulous which uses select2, break styling --&gt;&quot;, see evidence field for the suspicious comment/snippet.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/forgot_username/</uri>
+									<nodeName>http://localhost:8080/forgot_username/</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>&lt;!-- /.dropdown-user --&gt;</evidence>
+									<otherinfo>The following pattern was used: \bUSER\b and was detected in likely comment: &quot;&lt;!-- /.dropdown-user --&gt;&quot;, see evidence field for the suspicious comment/snippet.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/forgot_username/</uri>
+									<nodeName>http://localhost:8080/forgot_username/</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>&lt;!-- Bootstrap Select --&gt;</evidence>
+									<otherinfo>The following pattern was used: \bSELECT\b and was detected 3 times, the first in likely comment: &quot;&lt;!-- Bootstrap Select --&gt;&quot;, see evidence field for the suspicious comment/snippet.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/forgot_username/</uri>
+									<nodeName>http://localhost:8080/forgot_username/</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>&lt;!-- TODO not working with dj</evidence>
+									<otherinfo>The following pattern was used: \bTODO\b and was detected in likely comment: &quot;&lt;!-- TODO not working with django tagulous which uses select2, break styling --&gt;&quot;, see evidence field for the suspicious comment/snippet.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/login?next=/robots.txt</uri>
+									<nodeName>http://localhost:8080/login (next)</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>&lt;!-- /.dropdown-user --&gt;</evidence>
+									<otherinfo>The following pattern was used: \bUSER\b and was detected in likely comment: &quot;&lt;!-- /.dropdown-user --&gt;&quot;, see evidence field for the suspicious comment/snippet.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/login?next=/sitemap.xml</uri>
+									<nodeName>http://localhost:8080/login (next)</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>&lt;!-- Bootstrap Select --&gt;</evidence>
+									<otherinfo>The following pattern was used: \bSELECT\b and was detected 3 times, the first in likely comment: &quot;&lt;!-- Bootstrap Select --&gt;&quot;, see evidence field for the suspicious comment/snippet.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/login?next=/robots.txt</uri>
+									<nodeName>http://localhost:8080/login (next)</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>&lt;!-- TODO not working with dj</evidence>
+									<otherinfo>The following pattern was used: \bTODO\b and was detected in likely comment: &quot;&lt;!-- TODO not working with django tagulous which uses select2, break styling --&gt;&quot;, see evidence field for the suspicious comment/snippet.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/password_reset/</uri>
+									<nodeName>http://localhost:8080/password_reset/</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>&lt;!-- /.dropdown-user --&gt;</evidence>
+									<otherinfo>The following pattern was used: \bUSER\b and was detected in likely comment: &quot;&lt;!-- /.dropdown-user --&gt;&quot;, see evidence field for the suspicious comment/snippet.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/password_reset/</uri>
+									<nodeName>http://localhost:8080/password_reset/</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>&lt;!-- Bootstrap Select --&gt;</evidence>
+									<otherinfo>The following pattern was used: \bSELECT\b and was detected 3 times, the first in likely comment: &quot;&lt;!-- Bootstrap Select --&gt;&quot;, see evidence field for the suspicious comment/snippet.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/password_reset/</uri>
+									<nodeName>http://localhost:8080/password_reset/</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>&lt;!-- TODO not working with dj</evidence>
+									<otherinfo>The following pattern was used: \bTODO\b and was detected in likely comment: &quot;&lt;!-- TODO not working with django tagulous which uses select2, break styling --&gt;&quot;, see evidence field for the suspicious comment/snippet.</otherinfo>
+								</instance>
+							
+						</instances>
+						<count>12</count>
+						<systemic>false</systemic>
+						<solution>&lt;p&gt;Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.&lt;/p&gt;</solution>
+						<otherinfo>&lt;p&gt;The following pattern was used: \bUSER\b and was detected in likely comment: &quot;&lt;!-- /.dropdown-user --&gt;&quot;, see evidence field for the suspicious comment/snippet.&lt;/p&gt;</otherinfo>
+						<reference></reference>
+						<cweid>615</cweid>
+						<wascid>13</wascid>
+						<sourceid>1</sourceid>
+					</alertitem>
+				
+				
+					<alertitem>
+						<pluginid>10109</pluginid>
+						<alertRef>10109</alertRef>
+						<alert>Modern Web Application</alert>
+						<name>Modern Web Application</name>
+						<riskcode>0</riskcode>
+						<confidence>2</confidence>
+						<riskdesc>Informational (Medium)</riskdesc>
+						<confidencedesc>Medium</confidencedesc>
+						<desc>&lt;p&gt;The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.&lt;/p&gt;</desc>
+						<instances>
+							
+								<instance>
+									<uri>http://localhost:8080</uri>
+									<nodeName>http://localhost:8080</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>&lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#&quot; aria-expanded=&quot;false&quot; aria-label=&quot;User Menu&quot;&gt;
+                                &lt;i class=&quot;fa-solid fa-user fa-fw&quot;&gt;&lt;/i&gt;
+                                &lt;i class=&quot;fa-solid fa-caret-down&quot;&gt;&lt;/i&gt;
+                            &lt;/a&gt;</evidence>
+									<otherinfo>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/api/v2/oa3/swagger-ui/</uri>
+									<nodeName>http://localhost:8080/api/v2/oa3/swagger-ui/</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>&lt;script src=&quot;/static/drf_spectacular_sidecar/swagger-ui-dist/swagger-ui-bundle.js&quot;&gt;&lt;/script&gt;</evidence>
+									<otherinfo>No links have been found while there are scripts, which is an indication that this is a modern web application.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/forgot_username/</uri>
+									<nodeName>http://localhost:8080/forgot_username/</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>&lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#&quot; aria-expanded=&quot;false&quot; aria-label=&quot;User Menu&quot;&gt;
+                                &lt;i class=&quot;fa-solid fa-user fa-fw&quot;&gt;&lt;/i&gt;
+                                &lt;i class=&quot;fa-solid fa-caret-down&quot;&gt;&lt;/i&gt;
+                            &lt;/a&gt;</evidence>
+									<otherinfo>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/login?next=/sitemap.xml</uri>
+									<nodeName>http://localhost:8080/login (next)</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>&lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#&quot; aria-expanded=&quot;false&quot; aria-label=&quot;User Menu&quot;&gt;
+                                &lt;i class=&quot;fa-solid fa-user fa-fw&quot;&gt;&lt;/i&gt;
+                                &lt;i class=&quot;fa-solid fa-caret-down&quot;&gt;&lt;/i&gt;
+                            &lt;/a&gt;</evidence>
+									<otherinfo>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/password_reset/</uri>
+									<nodeName>http://localhost:8080/password_reset/</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>&lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#&quot; aria-expanded=&quot;false&quot; aria-label=&quot;User Menu&quot;&gt;
+                                &lt;i class=&quot;fa-solid fa-user fa-fw&quot;&gt;&lt;/i&gt;
+                                &lt;i class=&quot;fa-solid fa-caret-down&quot;&gt;&lt;/i&gt;
+                            &lt;/a&gt;</evidence>
+									<otherinfo>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</otherinfo>
+								</instance>
+							
+						</instances>
+						<count>5</count>
+						<systemic>true</systemic>
+						<solution>&lt;p&gt;This is an informational alert and so no changes are required.&lt;/p&gt;</solution>
+						<otherinfo>&lt;p&gt;Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.&lt;/p&gt;</otherinfo>
+						<reference></reference>
+						<cweid>-1</cweid>
+						<wascid>-1</wascid>
+						<sourceid>1</sourceid>
+					</alertitem>
+				
+				
+					<alertitem>
+						<pluginid>10049</pluginid>
+						<alertRef>10049-1</alertRef>
+						<alert>Non-Storable Content</alert>
+						<name>Non-Storable Content</name>
+						<riskcode>0</riskcode>
+						<confidence>2</confidence>
+						<riskdesc>Informational (Medium)</riskdesc>
+						<confidencedesc>Medium</confidencedesc>
+						<desc>&lt;p&gt;The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.&lt;/p&gt;</desc>
+						<instances>
+							
+								<instance>
+									<uri>http://localhost:8080</uri>
+									<nodeName>http://localhost:8080</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>302</evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/</uri>
+									<nodeName>http://localhost:8080/</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>302</evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/robots.txt</uri>
+									<nodeName>http://localhost:8080/robots.txt</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>302</evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/sitemap.xml</uri>
+									<nodeName>http://localhost:8080/sitemap.xml</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence>302</evidence>
+									<otherinfo></otherinfo>
+								</instance>
+							
+						</instances>
+						<count>4</count>
+						<systemic>true</systemic>
+						<solution>&lt;p&gt;The content may be marked as storable by ensuring that the following conditions are satisfied:&lt;/p&gt;&lt;p&gt;The request method must be understood by the cache and defined as being cacheable (&quot;GET&quot;, &quot;HEAD&quot;, and &quot;POST&quot; are currently defined as cacheable)&lt;/p&gt;&lt;p&gt;The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)&lt;/p&gt;&lt;p&gt;The &quot;no-store&quot; cache directive must not appear in the request or response header fields&lt;/p&gt;&lt;p&gt;For caching by &quot;shared&quot; caches such as &quot;proxy&quot; caches, the &quot;private&quot; response directive must not appear in the response&lt;/p&gt;&lt;p&gt;For caching by &quot;shared&quot; caches such as &quot;proxy&quot; caches, the &quot;Authorization&quot; header field must not appear in the request, unless the response explicitly allows it (using one of the &quot;must-revalidate&quot;, &quot;public&quot;, or &quot;s-maxage&quot; Cache-Control response directives)&lt;/p&gt;&lt;p&gt;In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:&lt;/p&gt;&lt;p&gt;It must contain an &quot;Expires&quot; header field&lt;/p&gt;&lt;p&gt;It must contain a &quot;max-age&quot; response directive&lt;/p&gt;&lt;p&gt;For &quot;shared&quot; caches such as &quot;proxy&quot; caches, it must contain a &quot;s-maxage&quot; response directive&lt;/p&gt;&lt;p&gt;It must contain a &quot;Cache Control Extension&quot; that allows it to be cached&lt;/p&gt;&lt;p&gt;It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).&lt;/p&gt;</solution>
+						<otherinfo></otherinfo>
+						<reference>&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7234&lt;/p&gt;&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7231&lt;/p&gt;&lt;p&gt;https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html&lt;/p&gt;</reference>
+						<cweid>524</cweid>
+						<wascid>13</wascid>
+						<sourceid>7</sourceid>
+					</alertitem>
+				
+				
+					<alertitem>
+						<pluginid>10112</pluginid>
+						<alertRef>10112</alertRef>
+						<alert>Session Management Response Identified</alert>
+						<name>Session Management Response Identified</name>
+						<riskcode>0</riskcode>
+						<confidence>2</confidence>
+						<riskdesc>Informational (Medium)</riskdesc>
+						<confidencedesc>Medium</confidencedesc>
+						<desc>&lt;p&gt;The given response has been identified as containing a session management token. The &apos;Other Info&apos; field contains a set of header tokens that can be used in the Header Based Session Management Method. If the request is in a context which has a Session Management Method set to &quot;Auto-Detect&quot; then this rule will change the session management to use the tokens identified.&lt;/p&gt;</desc>
+						<instances>
+							
+								<instance>
+									<uri>http://localhost:8080/api/v2/oa3/swagger-ui/</uri>
+									<nodeName>http://localhost:8080/api/v2/oa3/swagger-ui/</nodeName>
+									<method>GET</method>
+									<param>csrftoken</param>
+									<attack></attack>
+									<evidence>csrftoken</evidence>
+									<otherinfo>cookie:csrftoken</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/forgot_username/</uri>
+									<nodeName>http://localhost:8080/forgot_username/</nodeName>
+									<method>GET</method>
+									<param>csrftoken</param>
+									<attack></attack>
+									<evidence>csrftoken</evidence>
+									<otherinfo>cookie:csrftoken</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/login?next=/robots.txt</uri>
+									<nodeName>http://localhost:8080/login (next)</nodeName>
+									<method>GET</method>
+									<param>csrftoken</param>
+									<attack></attack>
+									<evidence>csrftoken</evidence>
+									<otherinfo>cookie:csrftoken</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/password_reset/</uri>
+									<nodeName>http://localhost:8080/password_reset/</nodeName>
+									<method>GET</method>
+									<param>csrftoken</param>
+									<attack></attack>
+									<evidence>csrftoken</evidence>
+									<otherinfo>cookie:csrftoken</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/forgot_username/</uri>
+									<nodeName>http://localhost:8080/forgot_username/ ()(csrfmiddlewaretoken,email)</nodeName>
+									<method>POST</method>
+									<param>csrftoken</param>
+									<attack></attack>
+									<evidence>csrftoken</evidence>
+									<otherinfo>cookie:csrftoken</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/login?next=/robots.txt</uri>
+									<nodeName>http://localhost:8080/login (next)(csrfmiddlewaretoken,password,username)</nodeName>
+									<method>POST</method>
+									<param>csrftoken</param>
+									<attack></attack>
+									<evidence>csrftoken</evidence>
+									<otherinfo>cookie:csrftoken</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/password_reset/</uri>
+									<nodeName>http://localhost:8080/password_reset/ ()(csrfmiddlewaretoken,email)</nodeName>
+									<method>POST</method>
+									<param>csrftoken</param>
+									<attack></attack>
+									<evidence>csrftoken</evidence>
+									<otherinfo>cookie:csrftoken</otherinfo>
+								</instance>
+							
+						</instances>
+						<count>7</count>
+						<systemic>false</systemic>
+						<solution>&lt;p&gt;This is an informational alert rather than a vulnerability and so there is nothing to fix.&lt;/p&gt;</solution>
+						<otherinfo>&lt;p&gt;cookie:csrftoken&lt;/p&gt;</otherinfo>
+						<reference>&lt;p&gt;https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id/&lt;/p&gt;</reference>
+						<cweid>-1</cweid>
+						<wascid>-1</wascid>
+						<sourceid>65</sourceid>
+					</alertitem>
+				
+				
+					<alertitem>
+						<pluginid>10049</pluginid>
+						<alertRef>10049-3</alertRef>
+						<alert>Storable and Cacheable Content</alert>
+						<name>Storable and Cacheable Content</name>
+						<riskcode>0</riskcode>
+						<confidence>2</confidence>
+						<riskdesc>Informational (Medium)</riskdesc>
+						<confidencedesc>Medium</confidencedesc>
+						<desc>&lt;p&gt;The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users. If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where &quot;shared&quot; caching servers such as &quot;proxy&quot; caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.&lt;/p&gt;</desc>
+						<instances>
+							
+								<instance>
+									<uri>http://localhost:8080/static/bootstrap-select/dist/css/bootstrap-select.min.css</uri>
+									<nodeName>http://localhost:8080/static/bootstrap-select/dist/css/bootstrap-select.min.css</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/dojo/img/favicon.png</uri>
+									<nodeName>http://localhost:8080/static/dojo/img/favicon.png</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/fontawesomefree/css/solid.min.css</uri>
+									<nodeName>http://localhost:8080/static/fontawesomefree/css/solid.min.css</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/metismenu/dist/metisMenu.min.css</uri>
+									<nodeName>http://localhost:8080/static/metismenu/dist/metisMenu.min.css</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/static/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css</uri>
+									<nodeName>http://localhost:8080/static/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css</nodeName>
+									<method>GET</method>
+									<param></param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</otherinfo>
+								</instance>
+							
+						</instances>
+						<count>5</count>
+						<systemic>true</systemic>
+						<solution>&lt;p&gt;Validate that the response does not contain sensitive, personal or user-specific information. If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:&lt;/p&gt;&lt;p&gt;Cache-Control: no-cache, no-store, must-revalidate, private&lt;/p&gt;&lt;p&gt;Pragma: no-cache&lt;/p&gt;&lt;p&gt;Expires: 0&lt;/p&gt;&lt;p&gt;This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request.&lt;/p&gt;</solution>
+						<otherinfo>&lt;p&gt;In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.&lt;/p&gt;</otherinfo>
+						<reference>&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7234&lt;/p&gt;&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7231&lt;/p&gt;&lt;p&gt;https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html&lt;/p&gt;</reference>
+						<cweid>524</cweid>
+						<wascid>13</wascid>
+						<sourceid>25</sourceid>
+					</alertitem>
+				
+				
+					<alertitem>
+						<pluginid>10031</pluginid>
+						<alertRef>10031</alertRef>
+						<alert>User Controllable HTML Element Attribute (Potential XSS)</alert>
+						<name>User Controllable HTML Element Attribute (Potential XSS)</name>
+						<riskcode>0</riskcode>
+						<confidence>1</confidence>
+						<riskdesc>Informational (Low)</riskdesc>
+						<confidencedesc>Low</confidencedesc>
+						<desc>&lt;p&gt;This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.&lt;/p&gt;</desc>
+						<instances>
+							
+								<instance>
+									<uri>http://localhost:8080/forgot_username/</uri>
+									<nodeName>http://localhost:8080/forgot_username/ ()(csrfmiddlewaretoken,email)</nodeName>
+									<method>POST</method>
+									<param>email</param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
+
+http://localhost:8080/forgot_username/
+
+appears to include user input in:
+a(n) [input] tag [value] attribute
+
+The user input found was:
+email=zaproxy@example.com
+
+The user-controlled value was:
+zaproxy@example.com</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/login?next=/robots.txt</uri>
+									<nodeName>http://localhost:8080/login (next)(csrfmiddlewaretoken,password,username)</nodeName>
+									<method>POST</method>
+									<param>password</param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
+
+http://localhost:8080/login?next=/robots.txt
+
+appears to include user input in:
+a(n) [input] tag [value] attribute
+
+The user input found was:
+password=ZAP
+
+The user-controlled value was:
+zap</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/login?next=/robots.txt</uri>
+									<nodeName>http://localhost:8080/login (next)(csrfmiddlewaretoken,password,username)</nodeName>
+									<method>POST</method>
+									<param>username</param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
+
+http://localhost:8080/login?next=/robots.txt
+
+appears to include user input in:
+a(n) [input] tag [value] attribute
+
+The user input found was:
+username=ZAP
+
+The user-controlled value was:
+zap</otherinfo>
+								</instance>
+							
+							
+								<instance>
+									<uri>http://localhost:8080/password_reset/</uri>
+									<nodeName>http://localhost:8080/password_reset/ ()(csrfmiddlewaretoken,email)</nodeName>
+									<method>POST</method>
+									<param>email</param>
+									<attack></attack>
+									<evidence></evidence>
+									<otherinfo>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
+
+http://localhost:8080/password_reset/
+
+appears to include user input in:
+a(n) [input] tag [value] attribute
+
+The user input found was:
+email=zaproxy@example.com
+
+The user-controlled value was:
+zaproxy@example.com</otherinfo>
+								</instance>
+							
+						</instances>
+						<count>4</count>
+						<systemic>false</systemic>
+						<solution>&lt;p&gt;Validate all input and sanitize output it before writing to any HTML attributes.&lt;/p&gt;</solution>
+						<otherinfo>&lt;p&gt;User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;http://localhost:8080/forgot_username/&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;appears to include user input in:&lt;/p&gt;&lt;p&gt;a(n) [input] tag [value] attribute&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;The user input found was:&lt;/p&gt;&lt;p&gt;email=zaproxy@example.com&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;The user-controlled value was:&lt;/p&gt;&lt;p&gt;zaproxy@example.com&lt;/p&gt;</otherinfo>
+						<reference>&lt;p&gt;https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html&lt;/p&gt;</reference>
+						<cweid>20</cweid>
+						<wascid>20</wascid>
+						<sourceid>176</sourceid>
+					</alertitem>
+				
+			</alerts>
+		</site>
+	
+	
+		<insights>
+			
+				<insight>
+					<level>Low</level>
+					<reason>Warning</reason>
+					<site></site>
+					<key>insight.log.warn</key>
+					<description>ZAP warnings logged - see the zap.log file for details</description>
+					<statistic>2</statistic>
+				</insight>
+			
+			
+				<insight>
+					<level>Info</level>
+					<reason>Informational</reason>
+					<site>http://localhost:8080</site>
+					<key>insight.code.2xx</key>
+					<description>Percentage of responses with status code 2xx</description>
+					<statistic>91</statistic>
+				</insight>
+			
+			
+				<insight>
+					<level>Info</level>
+					<reason>Informational</reason>
+					<site>http://localhost:8080</site>
+					<key>insight.code.3xx</key>
+					<description>Percentage of responses with status code 3xx</description>
+					<statistic>6</statistic>
+				</insight>
+			
+			
+				<insight>
+					<level>Info</level>
+					<reason>Informational</reason>
+					<site>http://localhost:8080</site>
+					<key>insight.code.4xx</key>
+					<description>Percentage of responses with status code 4xx</description>
+					<statistic>1</statistic>
+				</insight>
+			
+			
+				<insight>
+					<level>Info</level>
+					<reason>Informational</reason>
+					<site>http://localhost:8080</site>
+					<key>insight.endpoint.ctype.application/javascript</key>
+					<description>Percentage of endpoints with content type application/javascript</description>
+					<statistic>49</statistic>
+				</insight>
+			
+			
+				<insight>
+					<level>Info</level>
+					<reason>Informational</reason>
+					<site>http://localhost:8080</site>
+					<key>insight.endpoint.ctype.image/png</key>
+					<description>Percentage of endpoints with content type image/png</description>
+					<statistic>7</statistic>
+				</insight>
+			
+			
+				<insight>
+					<level>Info</level>
+					<reason>Informational</reason>
+					<site>http://localhost:8080</site>
+					<key>insight.endpoint.ctype.text/css</key>
+					<description>Percentage of endpoints with content type text/css</description>
+					<statistic>25</statistic>
+				</insight>
+			
+			
+				<insight>
+					<level>Info</level>
+					<reason>Informational</reason>
+					<site>http://localhost:8080</site>
+					<key>insight.endpoint.ctype.text/html</key>
+					<description>Percentage of endpoints with content type text/html</description>
+					<statistic>18</statistic>
+				</insight>
+			
+			
+				<insight>
+					<level>Info</level>
+					<reason>Informational</reason>
+					<site>http://localhost:8080</site>
+					<key>insight.endpoint.method.GET</key>
+					<description>Percentage of endpoints with method GET</description>
+					<statistic>94</statistic>
+				</insight>
+			
+			
+				<insight>
+					<level>Info</level>
+					<reason>Informational</reason>
+					<site>http://localhost:8080</site>
+					<key>insight.endpoint.method.POST</key>
+					<description>Percentage of endpoints with method POST</description>
+					<statistic>5</statistic>
+				</insight>
+			
+			
+				<insight>
+					<level>Info</level>
+					<reason>Informational</reason>
+					<site>http://localhost:8080</site>
+					<key>insight.endpoint.total</key>
+					<description>Count of total endpoints</description>
+					<statistic>55</statistic>
+				</insight>
+			
+			
+				<insight>
+					<level>Info</level>
+					<reason>Informational</reason>
+					<site>http://localhost:8080</site>
+					<key>insight.response.slow</key>
+					<description>Percentage of slow responses</description>
+					<statistic>4</statistic>
+				</insight>
+			
+		</insights>
+	
+</OWASPZAPReport>
