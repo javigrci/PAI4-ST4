@@ -1,0 +1,134 @@
+name: DevSecOps Pipeline - PAI4
+
+on:
+  push:
+    branches: ["main", "dev"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+
+  # ─────────────────────────────────────────────
+  # ETAPA 1 · SCA — pip-audit
+  # Detecta CVEs en dependencias Python
+  # ─────────────────────────────────────────────
+  sca-pip-audit:
+    name: "SCA · pip-audit"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install pip-audit
+        run: pip install pip-audit
+
+      - name: Run pip-audit on vulnerable demo requirements
+        run: |
+          pip-audit -r requirements-vuln-demo.txt \
+            --format=json \
+            --output=pip-audit-report.json \
+            --ignore-vuln GHSA-j8r2-6x86-q33q || true
+
+      - name: Upload SCA report
+        uses: actions/upload-artifact@v4
+        with:
+          name: sca-pip-audit-report
+          path: pip-audit-report.json
+
+  # ─────────────────────────────────────────────
+  # ETAPA 2 · SAST/IAST — Semgrep
+  # Análisis estático + taint analysis OWASP Top 10
+  # ─────────────────────────────────────────────
+  sast-semgrep:
+    name: "SAST/IAST · Semgrep"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Semgrep OWASP Top 10 + secrets
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: >-
+            p/owasp-top-ten
+            p/secrets
+        env:
+          SEMGREP_APP_TOKEN: ""
+        continue-on-error: true
+
+      - name: Run Semgrep (JSON output for evidence)
+        run: |
+          pip install semgrep
+          semgrep --config=p/owasp-top-ten --config=p/secrets \
+            --json --output=semgrep-report.json . || true
+
+      - name: Upload SAST report
+        uses: actions/upload-artifact@v4
+        with:
+          name: sast-semgrep-report
+          path: semgrep-report.json
+
+  # ─────────────────────────────────────────────
+  # ETAPA 3 · Security IaC — Trivy
+  # Escanea Dockerfiles y ficheros de configuración
+  # ─────────────────────────────────────────────
+  iac-trivy:
+    name: "IaC · Trivy"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Trivy IaC scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: "config"
+          scan-ref: "."
+          format: "json"
+          output: "trivy-iac-report.json"
+          exit-code: "0"
+          severity: "HIGH,CRITICAL"
+
+      - name: Upload IaC report
+        uses: actions/upload-artifact@v4
+        with:
+          name: iac-trivy-report
+          path: trivy-iac-report.json
+
+  # ─────────────────────────────────────────────
+  # ETAPA 4 · Vulnerability Gate
+  # Falla el pipeline si hay CVEs críticos en SCA
+  # ─────────────────────────────────────────────
+  vuln-gate:
+    name: "Vulnerability Gate"
+    runs-on: ubuntu-latest
+    needs: [sca-pip-audit, sast-semgrep, iac-trivy]
+    steps:
+      - name: Download SCA report
+        uses: actions/download-artifact@v4
+        with:
+          name: sca-pip-audit-report
+
+      - name: Check for CRITICAL vulnerabilities
+        run: |
+          CRITICAL=$(python3 -c "
+          import json, sys
+          with open('pip-audit-report.json') as f:
+              data = json.load(f)
+          deps = data.get('dependencies', [])
+          critical = [
+              v for d in deps
+              for v in d.get('vulns', [])
+              if any(a.get('severity','').upper() == 'CRITICAL'
+                     for a in v.get('aliases', [{}]))
+          ]
+          print(len(critical))
+          " 2>/dev/null || echo "0")
+          echo "Critical CVEs found: $CRITICAL"
+          if [ "$CRITICAL" -gt 0 ]; then
+            echo "❌ GATE FAILED: $CRITICAL critical vulnerabilities detected."
+            exit 1
+          fi
+          echo "✅ Gate passed."

@@ -1,3 +1,7 @@
+# PAI4 - binaries and local tool artifacts
+trivy.exe
+*.exe
+
 # Docker container persistent data
 docker/data/
 docker/static/

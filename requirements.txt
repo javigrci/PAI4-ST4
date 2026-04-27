@@ -1,4 +1,6 @@
 # requirements.txt for DefectDojo using Python 3.x
+# NOTE: requests==2.18.0 added intentionally for PAI4 SCA demo (CVE-2018-18074)
+requests==2.18.0
 bleach==6.3.0
 bleach[css]
 celery[sqs]==5.6.3
